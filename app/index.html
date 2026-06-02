@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI do kwalifikacji zapytań</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <section class="hero card">
+      <div>
+        <p class="eyebrow">Portfolio automatyzacji</p>
+        <h1>AI do kwalifikacji zapytań</h1>
+        <p class="lede">Odbiera mail lub formularz, rozpoznaje temat, priorytet, klienta i kieruje sprawę do właściwej osoby.</p>
+      </div>
+      <div class="hero-badges">
+        <span>Mail</span>
+        <span>Formularz</span>
+        <span>CRM</span>
+        <span>Routing</span>
+      </div>
+    </section>
+
+    <section class="grid">
+      <aside class="card inbox-panel">
+        <div class="panel-head">
+          <h2>Przykładowe zgłoszenia</h2>
+          <p>Wybierz wiadomość lub wklej własną.</p>
+        </div>
+        <div id="inbox" class="list"></div>
+      </aside>
+
+      <section class="card main-panel">
+        <div class="panel-head">
+          <h2>Wejście</h2>
+          <p>Demo symuluje działanie pierwszej wersji automatyzacji.</p>
+        </div>
+
+        <form id="analyze-form" class="form">
+          <label>
+            Źródło
+            <select id="source">
+              <option value="mail">Mail</option>
+              <option value="form">Formularz</option>
+              <option value="website">WWW</option>
+            </select>
+          </label>
+          <label>
+            Temat
+            <input id="subject" type="text" placeholder="Np. Prośba o wycenę ogrodzenia" />
+          </label>
+          <label class="full">
+            Treść
+            <textarea id="body" rows="8" placeholder="Wklej wiadomość od klienta..."></textarea>
+          </label>
+          <div class="actions full">
+            <button type="submit">Przeanalizuj</button>
+            <button type="button" class="ghost" id="load-sample">Załaduj losowy przykład</button>
+          </div>
+        </form>
+      </section>
+
+      <aside class="card result-panel">
+        <div class="panel-head">
+          <h2>Wynik AI</h2>
+          <p>Struktura odpowiedzi i routing.</p>
+        </div>
+
+        <div class="result-stack">
+          <div class="result-box">
+            <span>Kategoria</span>
+            <strong id="category">-</strong>
+          </div>
+          <div class="result-box">
+            <span>Priorytet</span>
+            <strong id="priority">-</strong>
+          </div>
+          <div class="result-box">
+            <span>Klient</span>
+            <strong id="customer">-</strong>
+          </div>
+          <div class="result-box">
+            <span>Właściciel</span>
+            <strong id="owner">-</strong>
+          </div>
+          <div class="result-box wide">
+            <span>Uzasadnienie</span>
+            <p id="reason">Wybierz zgłoszenie, aby zobaczyć analizę.</p>
+          </div>
+          <div class="result-box wide">
+            <span>Proponowana odpowiedź</span>
+            <p id="reply">-</p>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="card footer-panel">
+      <div class="pipeline">
+        <div><strong>1.</strong> Odbiór maila/formularza</div>
+        <div><strong>2.</strong> Ekstrakcja danych</div>
+        <div><strong>3.</strong> Klasyfikacja i priorytet</div>
+        <div><strong>4.</strong> Routing do osoby lub działu</div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
