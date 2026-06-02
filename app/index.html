@@ -9,20 +9,46 @@
 <body>
   <main class="shell">
     <section class="hero card">
-      <div>
-        <p class="eyebrow">Portfolio automatyzacji</p>
-        <h1>AI do kwalifikacji zapytań</h1>
-        <p class="lede">Odbiera mail lub formularz, rozpoznaje temat, priorytet, klienta i kieruje sprawę do właściwej osoby.</p>
+      <div class="hero-copy">
+        <p class="eyebrow">Automation demo for B2B teams</p>
+        <h1>AI, która odciąża sprzedaż i obsługę zapytań</h1>
+        <p class="lede">Odbiera mail lub formularz, rozpoznaje temat, priorytet, klienta i kieruje sprawę do właściwej osoby bez ręcznego przeklikiwania skrzynki.</p>
+        <div class="hero-actions">
+          <button type="button" class="primary" id="hero-demo">Zobacz demo</button>
+          <button type="button" class="ghost" id="hero-about">O aplikacji</button>
+          <button type="button" class="ghost" id="hero-contact">Kontakt</button>
+        </div>
       </div>
-      <div class="hero-badges">
-        <span>Mail</span>
-        <span>Formularz</span>
-        <span>CRM</span>
-        <span>Routing</span>
+      <div class="hero-metrics">
+        <div><strong>42 s</strong><span>średni czas kwalifikacji</span></div>
+        <div><strong>0 ręcznych triage</strong><span>po wdrożeniu automatyzacji</span></div>
+        <div><strong>3 kanały</strong><span>mail, formularz, WWW</span></div>
       </div>
     </section>
 
-    <section class="grid">
+    <section class="tabs card" aria-label="Nawigacja sekcji">
+      <button type="button" class="tab is-active" data-panel="demo-panel">Demo</button>
+      <button type="button" class="tab" data-panel="about-panel">Jak działa</button>
+      <button type="button" class="tab" data-panel="contact-panel">Kontakt</button>
+    </section>
+
+    <section class="stats-row" aria-label="Najważniejsze korzyści">
+      <article class="card stat-card">
+        <span>Lepszy routing</span>
+        <strong>Zapytania trafiają od razu do właściwego działu.</strong>
+      </article>
+      <article class="card stat-card">
+        <span>Szybszy lead response</span>
+        <strong>Handlowiec dostaje gotowy kontekst, bez ręcznego czytania maili.</strong>
+      </article>
+      <article class="card stat-card">
+        <span>Mniej chaosu</span>
+        <strong>Jedno miejsce do klasyfikacji, priorytetu i historii decyzji.</strong>
+      </article>
+    </section>
+
+    <section class="panel-group" id="demo-panel">
+      <div class="grid">
       <aside class="card inbox-panel">
         <div class="panel-head">
           <h2>Przykładowe zgłoszenia</h2>
@@ -63,11 +89,21 @@
 
       <aside class="card result-panel">
         <div class="panel-head">
-          <h2>Wynik AI</h2>
-          <p>Struktura odpowiedzi i routing.</p>
+          <div class="panel-title-row">
+            <h2>Wynik AI</h2>
+            <span class="status-badge" id="analysis-state">Gotowe</span>
+          </div>
+          <p>Struktura odpowiedzi, routing i krótkie uzasadnienie decyzji.</p>
         </div>
 
         <div class="result-stack">
+          <div class="result-box emphasis">
+            <div class="result-topline">
+              <span>Poziom pewności</span>
+              <strong id="confidence">-</strong>
+            </div>
+            <div class="confidence-track" aria-hidden="true"><div id="confidence-bar" class="confidence-bar"></div></div>
+          </div>
           <div class="result-box">
             <span>Kategoria</span>
             <strong id="category">-</strong>
@@ -92,8 +128,70 @@
             <span>Proponowana odpowiedź</span>
             <p id="reply">-</p>
           </div>
+          <div class="result-box wide subtle">
+            <span>Następny krok</span>
+            <p id="next-step">Wybierz zgłoszenie, aby zobaczyć rekomendację działania.</p>
+          </div>
         </div>
       </aside>
+    </section>
+
+    <section class="card info-panel" id="about-panel" hidden>
+      <div class="info-layout">
+        <div>
+          <p class="eyebrow">Jak działa</p>
+          <h2>Od wiadomości do gotowego kierunku działania</h2>
+          <p class="lede small">To demo pokazuje, jak system może automatycznie analizować zgłoszenia, wyciągać dane i przekazywać sprawy bez ręcznego przeglądania skrzynki.</p>
+        </div>
+        <div class="info-cards">
+          <article>
+            <strong>1. Odbiór</strong>
+            <p>Mail, formularz lub formularz WWW trafia do jednego punktu wejścia.</p>
+          </article>
+          <article>
+            <strong>2. Analiza</strong>
+            <p>Mock API rozpoznaje temat, pilność, klienta i sygnały handlowe.</p>
+          </article>
+          <article>
+            <strong>3. Routing</strong>
+            <p>Sprawa dostaje właściciela, sugerowaną odpowiedź i następny krok.</p>
+          </article>
+          <article>
+            <strong>4. Integracja</strong>
+            <p>W realnym wdrożeniu wynik trafia do CRM, maila lub systemu ticketowego.</p>
+          </article>
+        </div>
+      </div>
+      <div class="use-cases">
+        <div class="use-case">
+          <span>Najlepsze dla</span>
+          <strong>produkcji, logistyki, serwisu i handlu B2B</strong>
+        </div>
+        <div class="use-case">
+          <span>Co sprzedaje ten demo</span>
+          <strong>mniej chaosu, szybszy pierwszy kontakt, mniej zgubionych leadów</strong>
+        </div>
+        <div class="use-case">
+          <span>Jak wdraża się realnie</span>
+          <strong>mail + formularz + CRM + panel dla handlowca</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="card contact-panel" id="contact-panel" hidden>
+      <div class="contact-layout">
+        <div>
+          <p class="eyebrow">Kontakt</p>
+          <h2>Umówmy krótką rozmowę o automatyzacji dla Twojej firmy</h2>
+          <p class="lede small">To miejsce jest gotowe pod Twoje dane kontaktowe, gdy wrzucisz to na onepager albo do portfolio sprzedażowego.</p>
+        </div>
+        <div class="contact-card">
+          <a class="contact-link" href="mailto:twoj-email@domena.pl">twoj-email@domena.pl</a>
+          <a class="contact-link" href="tel:+48123123123">+48 123 123 123</a>
+          <a class="contact-link primary-link" href="https://cal.com/" target="_blank" rel="noreferrer">Umów demo</a>
+          <p class="contact-note">Podmień dane na własne i masz gotową sekcję kontaktową pod sprzedaż.</p>
+        </div>
+      </div>
     </section>
 
     <section class="card footer-panel">
@@ -106,6 +204,7 @@
     </section>
   </main>
 
+  <script src="mock-api.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
